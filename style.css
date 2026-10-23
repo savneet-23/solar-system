@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background: radial-gradient(
+        circle at center,
+        #11152e 0%,
+        #050816 55%,
+        #000 100%
+    );
+ color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+h1 {
+    text-align: center;
+    padding-top: 25px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: #ffdd6d;
+    text-shadow: 0 0 15px #dee0ff;
+}
+.space {
+    width: 100%;
+    height: calc(100vh - 80px);
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sun {
+    width: 65px;
+    height: 65px;
+
+    position: absolute;
+    z-index: 10;
+
+    background: radial-gradient(
+        circle,
+        #fff7ad 0%,
+        #ffcc33 40%,
+        #ff7700 75%,
+        #ff3300 100%
+    );
+      border-radius: 50%;
+
+    box-shadow:
+        0 0 20px #ffcc33,
+        0 0 45px #ff8800,
+        0 0 80px #ff5500;
+}
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+
+    animation: orbit linear infinite;
+}
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.mercury-orbit {
+    width: 120px;
+    height: 120px;
+    animation-duration: 4s;
+}
+.mercury {
+    width: 9px;
+    height: 9px;
+    background: #aaa49a;
+    box-shadow: 0 0 8px #aaa49a;
+}
+.venus-orbit {
+    width: 175px;
+    height: 175px;
+    animation-duration: 7s;
+}
+
+.venus {
+    width: 14px;
+    height: 14px;
+    background: #e6b566;
+    box-shadow: 0 0 10px #e6b566;
+}
+
+.earth-orbit {
+    width: 235px;
+    height: 235px;
+    animation-duration: 10s;
+}
+
+.earth {
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(
+        circle at 30% 30%,
+        #8df9ff,
+        #1685ff 55%,
+        #0645a8
+    );
+    box-shadow: 0 0 12px #1685ff;
+}
+
+.mars-orbit {
+    width: 300px;
+    height: 300px;
+    animation-duration: 15s;
+}
+
+.mars {
+    width: 12px;
+    height: 12px;
+    background: #ff6945;
+    box-shadow: 0 0 10px #ff6945;
+}
+.jupiter-orbit {
+    width: 390px;
+    height: 390px;
+    animation-duration: 22s;
+}
+
+.jupiter {
+    width: 29px;
+    height: 29px;
+
+    background: linear-gradient(
+        180deg,
+        #d9b28a 0%,
+        #a96f4b 25%,
+        #f0d2ad 45%,
+        #a96f4b 65%,
+        #e6c19a 85%
+    );
+
+    box-shadow: 0 0 12px rgba(217, 178, 138, 0.6);
+}
+
+/* Saturn */
+.saturn-orbit {
+    width: 485px;
+    height: 485px;
+    animation-duration: 30s;
+}
+
+.saturn {
+    width: 24px;
+    height: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #fff0b5,
+        #c69a52,
+        #f2d9a0
+    );
+
+    box-shadow: 0 0 12px #c69a52;
+}
+
+/* Saturn's rings */
+.saturn::after {
+    content: "";
+
+    position: absolute;
+    width: 38px;
+    height: 11px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) rotate(-25deg);
+
+    border: 3px solid #e5c78d;
+    border-radius: 50%;
+}
+
+/* Uranus */
+.uranus-orbit {
+    width: 575px;
+    height: 575px;
+    animation-duration: 38s;
+}
+
+.uranus {
+    width: 19px;
+    height: 19px;
+
+    background: #8ae9ee;
+    box-shadow: 0 0 12px #8ae9ee;
+}
+
+/* Neptune */
+.neptune-orbit {
+    width: 665px;
+    height: 665px;
+    animation-duration: 48s;
+}
+
+.neptune {
+    width: 18px;
+    height: 18px;
+
+    background: #4169ff;
+    box-shadow: 0 0 12px #4169ff;
+}
+
+/* Orbit animation */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 700px) {
+    .space {
+        transform: scale(0.65);
+        transform-origin: center center;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .orbit {
+        animation-play-state: paused;
+    }
+}
